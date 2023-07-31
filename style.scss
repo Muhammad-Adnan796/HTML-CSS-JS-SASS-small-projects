@@ -1,0 +1,43 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: burlywood;
+}
+
+@mixin pins($w: "", $h: "", $tp: "", $lft: "", $opcty: "", $bg_cl: "") {
+  width: $w;
+  height: $h;
+  top: $tp;
+  left: $lft;
+  opacity: $opcty;
+  background-color: $bg_cl;
+}
+
+#clockContainer {
+  margin: auto;
+  background: url("./assets/clock.png") no-repeat;
+  background-size: 100%;
+  width: 40vw;
+  height: 40vw;
+  position: relative;
+  #hour,
+  #minute,
+  #sec {
+    position: absolute;
+    border-radius: 10px;
+    transform-origin: bottom;
+  }
+  #hour {
+    @include pins(2%, 27%, 23.6%, 48.74%, 0.8, black);
+  }
+  #minute {
+    @include pins(2%, 33%, 17.3%, 49.3%, 0.8, black);
+  }
+  #sec {
+    @include pins(0.8%, 41%, 9.2%, 49.48%, 0.8, red);
+  }
+}
