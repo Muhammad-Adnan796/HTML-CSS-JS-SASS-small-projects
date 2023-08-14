@@ -1,0 +1,133 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+@mixin props(
+  $h: "",
+  $w: "",
+  $bi: "",
+  $br: "",
+  $bsz: "",
+  $ps: "",
+  $bot: "",
+  $lft: "",
+  $tp: ""
+) {
+  height: $h;
+  width: $w;
+  background-image: $bi;
+  background-repeat: $br;
+  background-size: $bsz;
+  position: $ps;
+  bottom: $bot;
+  left: $lft;
+  top: $tp;
+}
+
+body {
+  animation: shakeBody linear 6s infinite;
+  overflow: hidden;
+}
+
+.sky {
+  @include props(
+    100vh,
+    100%,
+    url("./assets/background.jpg"),
+    no-repeat,
+    absolute,
+    "",
+    ""
+  );
+
+  .trees {
+    @include props(
+      100vh,
+      100%,
+      url("./assets/trees.png"),
+      no-repeat,
+      cover,
+      absolute,
+      110px,
+      ""
+    );
+  }
+  .track {
+    @include props(
+      $h: 60vh,
+      $w: 800vw,
+      $bi: url("./assets/track.png"),
+      $br: repeat-x,
+      $ps: absolute,
+      $tp: 70vh
+    );
+    animation: carMove linear 13s infinite;
+  }
+  .car {
+    @include props(
+      $h: 100px,
+      $w: 380px,
+      $bi: url("./assets/car_body.png"),
+      $br: no-repeat,
+      $bsz: cover,
+      $ps: absolute,
+      $bot: 161px,
+      $lft: 300px,
+      $tp: null
+    );
+
+    animation: shake linear 5s infinite;
+    .wheel1 {
+      img {
+        @include props(
+          $w: 73px,
+          $ps: relative,
+          $bot: 161px,
+          $lft: 45px,
+          $tp: 40px
+        );
+        animation: wheelRotation linear 0.5s infinite;
+      }
+    }
+    .wheel2 {
+      img {
+        @include props($w: 79px, $ps: relative, $lft: 232px, $tp: -38px);
+        animation: wheelRotation linear 0.5s infinite;
+      }
+    }
+  }
+}
+
+@keyframes wheelRotation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes carMove {
+  100% {
+    transform: translateX(-500vw);
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translatey(-1vh);
+  }
+  50% {
+    transform: translatey(1vh);
+  }
+  100% {
+    transform: translatey(-1vh);
+  }
+}
+@keyframes shakeBody {
+  0% {
+    transform: translatey(-1vh);
+  }
+  50% {
+    transform: translatey(1vh);
+  }
+  100% {
+    transform: translatey(-1vh);
+  }
+}

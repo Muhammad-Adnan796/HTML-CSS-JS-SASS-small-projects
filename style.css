@@ -1,0 +1,113 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  animation: shakeBody linear 6s infinite;
+  overflow: hidden;
+}
+
+.sky {
+  height: 100vh;
+  width: 100%;
+  background-image: url("./assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: absolute;
+  position: "";
+  bottom: "";
+  left: "";
+  top: "";
+}
+.sky .trees {
+  height: 100vh;
+  width: 100%;
+  background-image: url("./assets/trees.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 110px;
+  left: "";
+  top: "";
+}
+.sky .track {
+  height: 60vh;
+  width: 800vw;
+  background-image: url("./assets/track.png");
+  background-repeat: repeat-x;
+  background-size: "";
+  position: absolute;
+  bottom: "";
+  left: "";
+  top: 70vh;
+  animation: carMove linear 13s infinite;
+}
+.sky .car {
+  height: 100px;
+  width: 380px;
+  background-image: url("./assets/car_body.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 161px;
+  left: 300px;
+  animation: shake linear 5s infinite;
+}
+.sky .car .wheel1 img {
+  height: "";
+  width: 73px;
+  background-image: "";
+  background-repeat: "";
+  background-size: "";
+  position: relative;
+  bottom: 161px;
+  left: 45px;
+  top: 40px;
+  animation: wheelRotation linear 0.5s infinite;
+}
+.sky .car .wheel2 img {
+  height: "";
+  width: 79px;
+  background-image: "";
+  background-repeat: "";
+  background-size: "";
+  position: relative;
+  bottom: "";
+  left: 232px;
+  top: -38px;
+  animation: wheelRotation linear 0.5s infinite;
+}
+
+@keyframes wheelRotation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes carMove {
+  100% {
+    transform: translateX(-500vw);
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translatey(-1vh);
+  }
+  50% {
+    transform: translatey(1vh);
+  }
+  100% {
+    transform: translatey(-1vh);
+  }
+}
+@keyframes shakeBody {
+  0% {
+    transform: translatey(-1vh);
+  }
+  50% {
+    transform: translatey(1vh);
+  }
+  100% {
+    transform: translatey(-1vh);
+  }
+}/*# sourceMappingURL=style.css.map */
