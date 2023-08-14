@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Potta+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@900&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(199, 224, 247);
+}
+
+nav {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Potta One", cursive;
+  background-color: #31332d;
+  color: white;
+  font-size: 20px;
+}
+nav img {
+  width: 40px;
+}
+
+.container {
+  width: 60vw;
+  margin: auto;
+  padding: 32px;
+  font-family: "Roboto", sans-serif;
+}
+.container .heading {
+  font-family: "Inconsolata", monospace;
+  font-weight: 900;
+  font-size: 20px;
+  color: blueviolet;
+}
+.container .description {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: black;
+}
+.container code {
+  font-family: "Roboto", sans-serif;
+}
+
+.toolbar-item button {
+  cursor: pointer !important;
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 15px !important;
+  padding: 5px 14px !important;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern CheatSheet web</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./prism.css" />
+    <script src="./prism.js"></script>
+  </head>
+  <body>
+    <nav>
+      <img src="./assets/logo.png" alt="" />
+
+      <div class="content">This HTML CheatSheet is for you!</div>
+    </nav>
+
+    <div class="container">
+      <ol>
+        <li>
+          <span class="heading">HTML Boilerplate : </span>
+          <span class="description">This is a basic HTML code</span>
+          <pre class="language-html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </li>
+        <li>
+          <span class="heading">Javascript Code : </span>
+          <span class="description"
+            >This is a mobile zone object rendering functionality in
+            javascript.</span
+          >
+          <pre
+            class="language-js"
+          ><code>function mobilesObj(obj, value, model) {
+let dataDiv = document.querySelector(".inpData");
+let flag1 = true;
+let flag2 = true;
+for (let i in obj) {
+if (i?.toLowerCase() === value?.toLowerCase()) {
+    flag1 = false;
+    for (let k in obj[i]) {
+    if (k?.toLowerCase() === model?.toLowerCase()) {
+        flag2 = false;
+        dataDiv.innerHTML = ``;
+    break;  
+    }
+}
+    if (flag2) {
+    dataDiv.innerHTML = ``;
+    }
+    break;
+}
+}
+    if (flag1) {
+    dataDiv.innerHTML = ``;
+}
+}
+
+function mainFunc() {
+    const inpCompany = document.getElementById("company").value;
+    const inpModel = document.getElementById("model").value;
+    mobilesObj(mobiles, inpCompany, inpModel);
+}</code></pre>
+        </li>
+        <li>
+          <span class="heading">CSS-Library (SAAS) Code : </span>
+          <span class="description"
+            >This is a variable making code in SAAS.</span
+          >
+          <pre class="language-css"><code>$main-color: crimson;
+$border-color: black;
+$main-font: arial;</code></pre>
+        </li>
+      </ol>
+    </div>
+  </body>
+  <script src="./app.js"></script>
+</html>
