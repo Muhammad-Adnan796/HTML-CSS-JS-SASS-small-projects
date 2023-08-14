@@ -1,0 +1,117 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(238, 228, 83);
+}
+
+.main-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  margin: 5% auto;
+}
+.main-div .input-fields {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgba(240, 248, 255, 0.6);
+  width: 40vw;
+  height: 60vh;
+  align-items: center;
+  justify-content: center;
+  border: 1px solidrgb(230, 162, 61);
+  box-shadow: 0px 0px 10px 5px rgb(230, 162, 61);
+}
+.main-div .input-fields h1 {
+  font-size: 30px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-bottom: 10px;
+  color: rgb(11, 122, 173);
+  text-align: center;
+}
+.main-div .input-fields div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+}
+.main-div .input-fields input {
+  border: none;
+  border-radius: 10px;
+  margin: 20px;
+  width: 60%;
+  height: 20%;
+  box-shadow: 2px 2px 10px rgb(238, 228, 83);
+  padding-left: 15px;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.main-div .input-fields input:focus {
+  border: none;
+  outline: none;
+  box-shadow: 6px 6px 10px rgb(238, 228, 83);
+}
+.main-div .input-fields button {
+  background-color: aliceblue;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 6px 6px 10px rgb(238, 228, 83);
+  width: 120px;
+  height: 35px;
+  color: rgb(17, 139, 240);
+  font-weight: bold;
+  font-size: 17px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-div .input-fields button:hover {
+  background-color: rgb(247, 231, 14);
+}
+.main-div .inpData {
+  background-color: aliceblue;
+  border-radius: 10px;
+  background-color: rgba(240, 248, 255, 0.6);
+  width: 40vw;
+  height: 60vh;
+  border: 1px solidrgb(230, 162, 61);
+  box-shadow: 0px 0px 10px 5px rgb(230, 162, 61);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .main-div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .main-div .input-fields {
+    margin-bottom: 20px;
+  }
+  .main-div .input-fields h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: cadetblue;
+    text-align: center;
+  }
+  .main-div .input-fields input {
+    margin: 20px 0px;
+    padding-left: 5px;
+    font-size: 11px;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) *//*# sourceMappingURL=style.css.map */
