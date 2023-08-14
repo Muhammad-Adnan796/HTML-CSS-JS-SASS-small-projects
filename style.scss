@@ -1,0 +1,366 @@
+/* Importing Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+$fontsPoppins: "Poppins", sans-serif;
+$primaryClr: blueviolet;
+$primaryClrlight: rgb(160, 65, 248);
+$whiteClr: #fff;
+$timerClr: rgb(223, 193, 252);
+$optionsClr: rgba(160, 65, 248, 0.2);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $fontsPoppins;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background-color: $primaryClr;
+  .start_btn {
+    /* Start Quiz button styling */
+    button {
+      cursor: pointer;
+      font-size: 2vw;
+      font-weight: 500;
+      padding: 16px 30px;
+      color: $primaryClr;
+      outline: none;
+      border: none;
+      border-radius: 8px;
+      background-color: $whiteClr;
+      user-select: none;
+    }
+    background-color: $whiteClr;
+    border-radius: 8px;
+  }
+  .start_btn,
+  .info_box,
+  .quiz_box,
+  .result_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 4px 8px 2px rgba(255, 255, 255, 0.2),
+      2px 6px 20px 2px rgba(245, 243, 243, 0.19);
+    transition: all 0.3s ease-in-out;
+  }
+  .info_box {
+    width: 540px;
+    background-color: $whiteClr;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    // transform: translate(50%,50%) scale(0.9);
+    .info_title {
+      height: 60px;
+      width: 100%;
+      border-bottom: 1px solid lightgray;
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .info_list {
+      padding: 15px 35px;
+      .info {
+        margin: 5px 0;
+        font-size: 17px;
+        span {
+          font-weight: 600;
+          color: $primaryClr;
+        }
+      }
+    }
+    .bttns {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 35px;
+      border-top: 1px solid lightgray;
+      button {
+        margin: 0 5px;
+        height: 40px;
+        width: 100px;
+        border: 1px solid $primaryClr;
+        outline: none;
+        border-radius: 8px;
+        color: $whiteClr;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      button.quit {
+        color: $primaryClr;
+        background-color: $whiteClr;
+        &:hover {
+          color: $whiteClr;
+          background-color: $primaryClr;
+        }
+      }
+      button.restart {
+        background-color: $primaryClr;
+        color: $whiteClr;
+        &:hover {
+          background-color: $primaryClrlight;
+        }
+      }
+    }
+  }
+  // used by js
+  .activeInfo,
+  .activeQuiz,
+  .activeResult {
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Quit Box styling */
+
+.quiz_box {
+  width: 550px;
+  background-color: $whiteClr;
+  border-radius: 8px;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(50%, 50%) scale(0.9);
+  header {
+    position: relative;
+    z-index: 99;
+    height: 70px;
+    padding: 0 30px;
+    background-color: $whiteClr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.1);
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .timer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 145px;
+      height: 45px;
+      background-color: $timerClr;
+      border: 1px solid $primaryClr;
+      border-radius: 8px;
+      padding: 0 8px;
+      .time_text {
+        font-weight: 400;
+        font-size: 17px;
+        user-select: none;
+      }
+      .timer_sec {
+        font-size: 18px;
+        font-weight: 500;
+        background-color: #343a40;
+        height: 30px;
+        width: 45px;
+        color: $whiteClr;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 8px;
+        border: 1px solid #343a40;
+        user-select: none;
+      }
+    }
+    .time_line {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      height: 3px;
+      width: 50%;
+      background-color: $primaryClr;
+    }
+  }
+  section {
+    padding: 25px 30px 20px 30px;
+    background-color: $whiteClr;
+    .que_text {
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .option_list {
+      padding: 20px 0;
+      display: block;
+      .option {
+        background-color: $optionsClr;
+        border: 1px solid $primaryClr;
+        border-radius: 8px;
+        padding: 8px 15px;
+        margin-bottom: 15px;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        &:hover {
+          color: $primaryClr;
+          background-color: $timerClr;
+          border-color: $primaryClr;
+        }
+        &:last-child {
+          margin-bottom: 0px;
+        }
+        .icon {
+          height: 26px;
+          width: 26px;
+          border: 2px solid transparent;
+          border-radius: 50%;
+          text-align: center;
+          font-size: 13px;
+          line-height: 24px;
+          pointer-events: none;
+        }
+        .tick {
+          color: rgb(31, 161, 31);
+          border-color: rgb(31, 161, 31);
+          background-color: rgb(198, 245, 198);
+        }
+        .cross {
+          color: #a42834;
+          border-color: #a42834;
+          background-color: #f8d7da;
+        }
+      }
+      .disabled {
+        pointer-events: none;
+      }
+      .correct {
+        color: rgb(31, 161, 31);
+        border-color: rgb(31, 161, 31);
+        background-color: rgb(198, 245, 198);
+      }
+      .incorrect {
+        color: #a42834;
+        border-color: #a42834;
+        background-color: #f8d7da;
+      }
+    }
+  }
+
+  footer {
+    height: 60px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .total_que {
+      span {
+        display: flex;
+        user-select: none;
+        p {
+          font-weight: 500;
+          padding: 0 5px;
+          &:first-child {
+            padding-left: 0px;
+          }
+        }
+      }
+    }
+    .next_btn {
+      display: none;
+      height: 40px;
+      padding: 0 13px;
+      font-size: 18px;
+      font-weight: 400;
+      border: none;
+      outline: none;
+      color: $whiteClr;
+      background-color: $primaryClr;
+      border-radius: 8px;
+      border: 1px solid $primaryClr;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      &:hover {
+        background-color: $primaryClrlight;
+      }
+    }
+  }
+}
+
+/* Result Box styling */
+.result_box {
+  background-color: $whiteClr;
+  width: 450px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(50%, 50%) scale(0.9);
+
+  .icon {
+    font-size: 100px;
+    color: $primaryClr;
+    margin-bottom: 10px;
+  }
+  .complete_text {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .score_text {
+    span {
+      display: flex;
+      margin: 10px 0;
+      font-size: 18px;
+      font-weight: 500;
+      p {
+        font-weight: 600;
+        padding: 0 4px;
+      }
+    }
+  }
+  .bttns {
+    display: flex;
+    margin: 20px 0;
+    button {
+      margin: 0 10px;
+      height: 45px;
+      padding: 0 20px;
+      border: 1px solid $primaryClr;
+      outline: none;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 8px;
+      color: $whiteClr;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button.quit {
+      color: $primaryClr;
+      background-color: $whiteClr;
+      &:hover {
+        color: $whiteClr;
+        background-color: $primaryClr;
+      }
+    }
+    button.restart {
+      background-color: $primaryClr;
+      color: $whiteClr;
+      &:hover {
+        background-color: $primaryClrlight;
+      }
+    }
+  }
+}
